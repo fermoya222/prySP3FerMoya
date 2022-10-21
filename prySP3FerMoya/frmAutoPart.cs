@@ -11,7 +11,14 @@ using System.Windows.Forms;
 namespace prySP3FerMoya
 {
     public partial class frmAutoPart : Form
+
     {
+        //Declaracion de variables globales (para este form)
+        int numeroTurno;
+        string nombreDominio;
+        int anioFabricacion;
+        string nombreTitular;
+
         public frmAutoPart()
         {
             InitializeComponent();
@@ -69,5 +76,35 @@ namespace prySP3FerMoya
         {
 
         }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            numeroTurno = int.Parse(txtNumero.Text);
+            nombreDominio = txtDominio.Text;
+            anioFabricacion = Convert.ToInt32(nudAño.Value);
+            nombreTitular = txtTitular.Text;
+            // etso me carga los datos despues del evento click en btn REGISTRAR    
+
+
+
+            MessageBox.Show("Registro realizado",
+                "Registro", MessageBoxButtons.OK,
+                MessageBoxIcon.Information); // para poner un icono en el mensaje de registro realizado
+
+            LimpiarInterfaz();
+
+        }
+
+        private void LimpiarInterfaz()
+        {
+            txtNumero.Clear();
+            txtDominio.Clear();
+            nudAño.Value = 2022;
+            txtTitular.Clear();
+
+            txtNumero.Focus();
+            //esto me borra todo despues de poner registrar "despues de cargar los datos me limpia los txt"
+        }  //rtyrty
+
     }
 }
